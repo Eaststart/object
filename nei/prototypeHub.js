@@ -1,8 +1,8 @@
 // 运动原型
-function animation(ele,oJson,fn){
+function Animation(ele,oJson,fn){
     this.doMove(ele,oJson,fn);
 }
-animation.prototype={
+Animation.prototype={
     doMove:function(ele,oJson,fn){
         var oThis=this;
         var flag=false;
@@ -53,13 +53,13 @@ animation.prototype={
             return ele.currentStyle[attr];
         }
     }
-}
+};
 
 // 轮播原型
-function fnCarousel(id){
+function FnCarousel(id){
     this.initialize(id);
 }
-fnCarousel.prototype={
+FnCarousel.prototype={
     initialize:function(id){
         var oThisC=this;
         this.oBox=$(id);
@@ -126,4 +126,4 @@ fnCarousel.prototype={
             return ele.currentStyle[attr];
         }
     }
-}
+};
