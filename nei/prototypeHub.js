@@ -64,7 +64,9 @@ FnCarousel.prototype={
         var oThisC=this;
         this.oBox=$(id);
         this.oUl=$$('ul',this.oBox)[0];
-        this.oLi=$$('li',this.oUl);
+        this.oUlNav=$$('ul',this.oBox)[1];
+        this.oLi=this.oUl.getElementsByTagName('li');
+        this.oLiNav=this.oUlNav.getElementsByTagName('li');
         this.oLiClone=this.oUl.appendChild(this.oLi[0].cloneNode(true));
         this.oUl.style.width=this.oLi[0].offsetWidth*this.oLi.length+'px';
         this.oWidth=this.oLi[0].offsetWidth;
@@ -76,6 +78,15 @@ FnCarousel.prototype={
                 oThisC.oUl.style.left=0;
                 i=1;
             }
+            for(var x=0;x<oThisC.oLiNav.length;x++){
+                oThisC.oLiNav[x].className="";
+            }
+            if(i===oThisC.oLi.length-1){
+                oThisC.oLiNav[0].className="active";
+            }else{
+                oThisC.oLiNav[i].className="active";
+            }
+
             oThisC.doMove(oThisC.oUl,{'left':oThisC.oWidth*-i});
         },1500);
     },

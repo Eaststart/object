@@ -7,28 +7,38 @@
         *{margin:0;padding:0;}
         li{list-style:none;}
         .box{overflow:hidden;width:440px;height:200px;margin:40px auto;text-align:center;font-size:30px;border:3px solid black;position:relative;}
-        .box ul{position:absolute;height:200px;}
+        .box .show{position:absolute;height:200px;}
         .box ul:after{content:'.';clear:both;display:block;height:0;visibility:hidden;}
-        .box ul li{width:440px;height:200px;float:left;}
+        .box .show li{width:440px;height:200px;float:left;}
+        .nav{position: absolute;bottom:6px;right:174px;}
+        .nav li{width:20px;height:20px;background:#fff;float:left;border-radius:100%;}
+        .nav li.active{background:black;}
     </style>
     <script type="text/javascript" src="js/all.js"></script>
     <script type="text/javascript" src="../nei/prototypeHub.js"></script>
     <script type="text/javascript">
         window.onload=function(){
-            var oBox=$('box');
-            var a=new FnCarousel(oBox);
+            var a=new FnCarousel('box');
+            console.log(a.oUl);
         }
     </script>
 </head>
 <body>
     <div class="wrap" id="wrap">
         <div class="box" id="box">
-            <ul>
+            <ul class="show">
                 <li style="background:red;">1</li>
                 <li style="background:gold;">2</li>
                 <li style="background:orange;">3</li>
                 <li style="background:green;">4</li>
                 <li style="background:dimgrey;">5</li>
+            </ul>
+            <ul class="nav" id="nav">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
         </div>
     </div>
